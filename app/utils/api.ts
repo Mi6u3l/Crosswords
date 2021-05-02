@@ -36,8 +36,8 @@ export const getAlbums = async (
 };
 
 export const getTracks = async (
-  albumId: string
-): Promise<AxiosResponse<Album[]>> => {
+  albumId: number
+): Promise<AxiosResponse<Track[]>> => {
   const responseFromAPI = await axios.get(`${albumApiUrl}/${albumId}/tracks`);
   return responseFromAPI.data;
 };
