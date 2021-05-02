@@ -79,11 +79,25 @@ $color-pop: #e1e1e1;
   }
 
   .albums__list {
+    .albums__list-header {
+      color: $color-pop;
+      border-bottom: 0.2rem solid $color-opera;
+      padding-bottom: 0.5rem;
+      padding-left: 0.2rem;
+    }
+
+    .albums__list-title {
+      margin-bottom: 0;
+      color: $color-hiphop;
+      padding-left: 0.2rem;
+      text-transform: uppercase;
+    }
+
     ul {
       display: inline-flex;
+      margin-top: 0.2rem;
       padding-left: 0.2rem;
-      padding-top: 1rem;
-
+  
       li {
         list-style: none;
         color: $color-hiphop;
