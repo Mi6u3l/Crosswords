@@ -22,8 +22,7 @@ https://confident-shaw-a41d78.netlify.app/
 
 ## Things that could be improved with more time :)
 
-* Maybe use Style Components
+* Use Style Components
 * Add more unit tests
-* Migrate to TypeScript
-* Use Sagas rather than Thunk
+* Use more TypeScript (only used on api.ts)
 * Add one more reducer to control page loading

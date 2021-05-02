@@ -8,9 +8,12 @@ module.exports = {
     filename: 'index_bundle.js',
     publicPath: '/'
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"] 
+  },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      { test: /\.(js|ts|tsx)$/, use: 'babel-loader' },
       { test: /\.s[ac]ss$/i, use: [ 'style-loader', 'css-loader', 'sass-loader']}
     ]
   },
