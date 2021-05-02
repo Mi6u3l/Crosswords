@@ -6,7 +6,8 @@ export const TracksList = () => {
 
   const calculateDuration = (time) => {
     const minutes = Math.floor(time / 60);
-    const seconds = time - minutes * 60;
+    let seconds = time - minutes * 60;
+    seconds = seconds.toString().length === 1 ? "0" + seconds : seconds;
     return `${minutes}:${seconds}`;
   };
 
