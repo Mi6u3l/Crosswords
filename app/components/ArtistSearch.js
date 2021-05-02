@@ -4,6 +4,7 @@ import {
   getArtistsFromAPI,
   getAlbumsFromAPI,
   setArtist,
+  receiveTracks,
 } from "../actions/music";
 import { useDebounce } from "../hooks/useDebounce";
 
@@ -46,6 +47,7 @@ export const ArtistSearch = () => {
   const onSelectArtist = (artist) => {
     setIsSearching(true);
     dispatch(setArtist(artist));
+    dispatch(receiveTracks([]));
     setFilteredArtists([]);
     setSearchTerm(artist.name);
   };
