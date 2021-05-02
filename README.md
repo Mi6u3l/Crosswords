@@ -1,6 +1,6 @@
 # TIDAL
 
-## Ran with node version: v15.9.0
+## Node version: 15.9.0
 
 ## Technology
 
