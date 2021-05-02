@@ -22,7 +22,6 @@ https://confident-shaw-a41d78.netlify.app/
 
 ## Things that could be improved with more time :)
 
-* Better CSS alignment
 * Maybe use Style Components
 * Add more unit tests
 * Migrate to TypeScript
