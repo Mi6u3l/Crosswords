@@ -7,6 +7,7 @@
 * React/Redux
 * Webpack
 * Jest
+* Sass
 
 ## Usage
 
