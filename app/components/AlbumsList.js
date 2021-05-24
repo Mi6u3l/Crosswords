@@ -18,7 +18,7 @@ export const AlbumsList = () => {
 
   return (
     <section className="albums__list">
-      {music.albums && music.albums.length ? (
+      {music.albums.length ? (
         <>
           <p className="albums__list-header">
             Search results for: "{music.artist && music.artist.name}"

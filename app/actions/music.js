@@ -14,10 +14,11 @@ export const receiveArtists = (artists) => {
   };
 };
 
-export const receiveAlbums = (albums) => {
+export const receiveAlbums = (albums, status) => {
   return {
     type: RECEIVE_ALBUMS,
     albums,
+    status,
   };
 };
 
@@ -44,9 +45,13 @@ export const setAlbum = (album) => {
 
 export const getAlbumsFromAPI = (artistId) => {
   return async (dispatch) => {
-    dispatch(receiveAlbums({ status: "loading" }));
-    const response = await getAlbums(artistId);
-    dispatch(receiveAlbums({ status: "success", response }));
+    dispatch(receiveAlbums([], "isFetching"));
+    try {
+      const response = await getAlbums(artistId);
+      dispatch(receiveAlbums(response, "success"));
+    } catch (e) {
+      dispatch(receiveAlbums([], "error"));
+    }
   };
 };
 

@@ -38,6 +38,10 @@ export const ArtistSearch = () => {
     dispatch(setArtist(artist));
   };
 
+  if (music.status === "error") {
+    return <h2>Error occurred</h2>;
+  }
+
   return (
     <section className="search__artist">
       <input
@@ -47,7 +51,8 @@ export const ArtistSearch = () => {
         placeholder="Search here"
       />
       <button className="search__button">Search</button>
-      {music.artists && music.artists.length ? (
+
+      {music.artists.length ? (
         <div className="artist__results">
           <p>Search results</p>
           <ul>

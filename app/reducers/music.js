@@ -6,7 +6,15 @@ import {
   RECEIVE_TRACKS,
 } from "../actions/actionTypes";
 
-export default function artists(state = {}, action) {
+const initialState = {
+  artists: [],
+  artist: {},
+  albums: [],
+  album: {},
+  tracks: []
+}
+
+export default function artists(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_ARTISTS:
       return {
@@ -17,7 +25,8 @@ export default function artists(state = {}, action) {
     case RECEIVE_ALBUMS:
       return {
         ...state,
-        albums: action.albums.status === "success" ? action.albums.response.data.slice(0, 6): [],
+        albums: action.status === "success" ? action.albums.data.slice(0, 6): [],
+        status: action.status,
         artists: []
       };
     case SET_ARTIST:

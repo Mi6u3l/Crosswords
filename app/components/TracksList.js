@@ -7,19 +7,16 @@ export const TracksList = () => {
   const calculateDuration = (time) => {
     const minutes = Math.floor(time / 60);
     let seconds = time - minutes * 60;
-    seconds = seconds > 9 ? "0" + seconds : seconds;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
     return `${minutes}:${seconds}`;
   };
 
   return (
     <section className="tracks__list">
-      {music.tracks && music.tracks.length ? (
+      {music.tracks.length ? (
         <>
           <div className="tracks__album-info">
-            <img
-              src={music.album.cover_medium}
-              alt={music.album.title}
-            />
+            <img src={music.album.cover_medium} alt={music.album.title} />
             <p>{music.album.title}</p>
           </div>
           <table cellSpacing="0" cellPadding="0">
@@ -42,9 +39,7 @@ export const TracksList = () => {
                     <td className="tracks__title">{track.title}</td>
                     <td>{track.artist.name}</td>
                     <td>{calculateDuration(track.duration)}</td>
-                    <td>
-                      {new Date(music.album.release_date).getFullYear()}
-                    </td>
+                    <td>{new Date(music.album.release_date).getFullYear()}</td>
                   </tr>
                 );
               })}
