@@ -1,39 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setAlbum, getTracksFromAPI } from "../actions/music";
 
 export const AlbumsList = () => {
-  const [isSearching, setIsSearching] = useState(false);
-  const [artistName, setArtistName] = useState("");
-  const state = useSelector((state) => state);
+  const music = useSelector((state) => state.music);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (state.music.album && isSearching) {
-      dispatch(getTracksFromAPI(state.music.album.id));
-      setIsSearching(false);
+    if (music.album && music.album.id) {
+      dispatch(getTracksFromAPI(music.album.id));
     }
-
-    if (state.music.artist) {
-      setArtistName(state.music.artist.name);
-    }
-  }, [state]);
+  }, [music.album]);
 
   const onSelectAlbum = (album) => {
-    setIsSearching(true);
     dispatch(setAlbum(album));
   };
 
   return (
     <section className="albums__list">
-      {state.music.albums ? (
+      {music.albums && music.albums.length ? (
         <>
           <p className="albums__list-header">
-            Search results for: "{artistName}"
+            Search results for: "{music.artist && music.artist.name}"
           </p>
           <p className="albums__list-title">Albums</p>
           <ul>
-            {state.music.albums.map((album) => {
+            {music.albums.map((album) => {
               return (
                 <li key={album.id} onClick={() => onSelectAlbum(album)}>
                   <img src={album.cover_medium} alt={album.title} />

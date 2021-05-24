@@ -11,18 +11,20 @@ export default function artists(state = {}, action) {
     case RECEIVE_ARTISTS:
       return {
         ...state,
-        artists: action.artists.data.slice(0, 8),
+        artists: action.artists.data ? action.artists.data.slice(0, 8) : [],
+        albums: []
       };
     case RECEIVE_ALBUMS:
       return {
         ...state,
-        albums: action.albums.data.slice(0, 6),
+        albums: action.albums.status === "success" ? action.albums.response.data.slice(0, 6): [],
+        artists: []
       };
     case SET_ARTIST:
       return {
         ...state,
         artist: action.artist,
-        artists: [],
+        tracks: []
       };
     case SET_ALBUM:
       return {
