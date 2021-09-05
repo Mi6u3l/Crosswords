@@ -10,7 +10,8 @@
 
 ## Usage
 
-* `npm start` to run the app at localhost:8080.
+* `npm install` to install dependencies
+* `npm start` to run the app at localhost:8080
 
 
 ## Also deployed here
