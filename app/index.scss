@@ -2,184 +2,64 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-$color-blues: #777777;
-$color-hiphop: #23aebd;
-$color-rock: #1d1d1d;
-$color-soul: #232324;
-$color-opera: #202020;
-$color-pop: #e1e1e1;
+header {
+  height: 1.5rem;
 
-@mixin border {
-  border: none;
-  border-radius: 0.2rem;
+  p {
+    width: 35rem;
+    height: 1.5rem;
+    background-color: #d5eef7;
+    text-align: center;
+    line-height: 1.5rem;
+  }
 }
 
-.search {
-  @include border;
-  margin: 5rem auto;
-  width: 40rem;
-  background-color: $color-rock;
-  padding: 2rem;
+main {
+  display: inline-flex;
+}
 
-  &__artist {
-    input {
-      @include border;
-      width: 32rem;
-      height: 2rem;
-      background-color: $color-soul;
-      color: $color-blues;
-      padding-left: 1rem;
+#puzzle {
+  width: 35rem;
+  outline: none;
+}
 
-      &:focus {
-        outline: none;
-      }
-    }
+#clues > span {
+  margin-left: 1rem;
+  font-weight: bold;
+}
 
-    .search__button {
-      @include border;
-      margin-left: 1.8rem;
-      width: 5rem;
-      height: 2.1rem;
-      text-transform: uppercase;
-      background-color: $color-hiphop;
-      font-size: 0.8rem;
-    }
+.clues__list {
+  list-style: none;
+  height: 14.5rem;
+  overflow-y: scroll;
+  padding-left: 0px;
+  margin-left: 1rem;
+
+  .clues__item {
+    padding: 0.2rem;
   }
 
-  .artist__results {
-    @include border;
-    background-color: $color-soul;
-    color: $color-blues;
-    padding-left: 1rem;
-    width: 32rem;
-    position: absolute;
-    top: 10rem;
-    z-index: 1;
-
-    p {
-      padding-top: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1rem;
-
-      li {
-        list-style: none;
-        padding: 0.3rem;
-        border-bottom: 0.2rem solid $color-opera;
-        width: 28.2rem;
-        cursor: pointer;
-        font-size: 0.8rem;
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
+  .clues__item--selected {
+    background-color: #fedd7a;
   }
 
-  .albums__list {
-    .albums__list-header {
-      color: $color-pop;
-      border-bottom: 0.2rem solid $color-opera;
-      padding-bottom: 0.5rem;
-      padding-left: 0.2rem;
-    }
+  span {
+    font-weight: bold;
+  }
+}
 
-    .albums__list-title {
-      margin-bottom: 0;
-      color: $color-hiphop;
-      padding-left: 0.2rem;
-      text-transform: uppercase;
-    }
-
-    ul {
-      display: inline-flex;
-      margin-top: 0.2rem;
-      padding-left: 0.2rem;
-  
-      li {
-        list-style: none;
-        color: $color-hiphop;
-        font-size: 0.8rem;
-        text-align: center;
-        cursor: pointer;
-        margin-right: 0.7rem;
-        width: 6rem;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        img {
-          width: 6rem;
-          height: 6rem;
-        }
-      }
-    }
+.square {
+  rect {
+    stroke: #000;
+    stroke-width: 0.5;
+    fill: "#000";
   }
 
-  .tracks__list {
-    margin-top: 5rem;
-    position: relative;
+  .square__number {
+    font-size: 0.5rem;
+  }
 
-    table {
-      @include border;
-      min-width: 40.5rem;
-      text-align: left;
-      color: $color-pop;
-      background-color: $color-soul;
-      font-size: 0.8rem;
-
-      thead {
-        background-color: $color-rock;
-      }
-
-      tr {
-        padding-bottom: 1rem;
-      }
-
-      td,
-      th {
-        padding: 0.4rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 19rem;
-        border-bottom: 0.2rem solid $color-opera;
-
-        &:first-child,
-        second-child {
-          border-bottom: none;
-        }
-      }
-    }
-
-    .tracks__title {
-      width: 19rem;
-    }
-
-    .tracks__album-placeholder {
-      min-width: 6.2rem;
-    }
-
-    .tracks__album-info {
-      display: inline-flex;
-      position: absolute;
-      left: 0.6rem;
-      top: -2.5rem;
-
-      p {
-        padding-left: 1rem;
-        margin-top: 0.5rem;
-        color: $color-hiphop;
-        font-size: 0.8rem;
-      }
-
-      img {
-        width: 6rem;
-        height: 6rem;
-      }
-    }
+  .square__letter {
+    font-size: 1.2rem;
   }
 }

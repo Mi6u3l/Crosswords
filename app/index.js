@@ -1,32 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import reducer from "./reducers";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { ArtistSearch } from "./components/ArtistSearch";
-import { AlbumsList } from "./components/AlbumsList";
-import { TracksList } from "./components/TracksList";
+import { Puzzle } from "./components/puzzle";
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+export const App = () => {
+  return <Puzzle />;
+};
 
-class App extends React.Component {
-  render() {
-    return (
-      <main className="search">
-        <ArtistSearch />
-        <AlbumsList />
-        <TracksList />
-      </main>
-    );
-  }
-}
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("app")
-);
+ReactDOM.render(<App />, document.getElementById("app"));

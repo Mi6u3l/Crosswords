@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
-  entry: "./app/index.js",
+  entry: "./app/",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js",
