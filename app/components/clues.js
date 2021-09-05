@@ -1,13 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
 export const Clues = ({ clues, selectedWord }) => {
   const cluesRefs = useRef([]);
 
-  useEffect(() => {
-    if (!selectedWord) {
-      return;
-    }
-
+  if (selectedWord) {
     cluesRefs.current.forEach((ref) => [
       ref.classList.remove("clues__item--selected"),
     ]);
@@ -19,7 +15,7 @@ export const Clues = ({ clues, selectedWord }) => {
       targetClue.scrollIntoView({ behavior: "smooth" });
       targetClue.classList.add("clues__item--selected");
     }
-  }, [selectedWord]);
+  }
 
   return (
     <ul className="clues__list">
