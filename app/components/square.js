@@ -16,6 +16,7 @@ export const Square = ({
       {cell.solution ? (
         <>
           <rect
+            className="square__selectable"
             x={x}
             y={y}
             width={size}

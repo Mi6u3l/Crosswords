@@ -55,6 +55,10 @@ main {
     fill: "#000";
   }
 
+  .square__selectable {
+    cursor: pointer;
+  }
+
   .square__number {
     font-size: 0.5rem;
   }
